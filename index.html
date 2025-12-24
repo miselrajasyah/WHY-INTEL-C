@@ -18,27 +18,6 @@
             color: #fff;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 50px;
-            z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -48,7 +27,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 20px;
+            padding: 20px;
         }
 
         .warning-icon {
@@ -103,8 +82,14 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .scroll-indicator {
@@ -119,6 +104,26 @@
             0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-20px); }
             60% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 50px;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* Section Styles */
@@ -198,6 +203,12 @@
             margin-bottom: 10px;
         }
 
+        .stat-description {
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
         /* Problem Showcase */
         .problem-grid {
             display: grid;
@@ -213,6 +224,18 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
         }
 
         .problem-card:hover {
@@ -246,6 +269,10 @@
             margin-top: 20px;
         }
 
+        .problem-impact strong {
+            color: #e74c3c;
+        }
+
         /* Data Visualization */
         .chart-container {
             background: linear-gradient(135deg, #1e2139, #2a2d4a);
@@ -253,7 +280,6 @@
             border-radius: 25px;
             margin-top: 50px;
             border: 2px solid rgba(231, 76, 60, 0.3);
-            overflow-x: auto; /* Untuk mobile agar grafik tidak memotong */
         }
 
         .chart-title {
@@ -268,7 +294,6 @@
             justify-content: space-around;
             align-items: flex-end;
             height: 300px;
-            min-width: 300px;
             margin-top: 30px;
             padding: 20px;
             border-bottom: 2px solid rgba(255,255,255,0.2);
@@ -283,7 +308,14 @@
             animation: growUp 1s ease;
         }
 
-        @keyframes growUp { from { height: 0; } }
+        @keyframes growUp {
+            from { height: 0; }
+        }
+
+        .bar:hover {
+            filter: brightness(1.2);
+            transform: translateY(-5px);
+        }
 
         .bar-label {
             position: absolute;
@@ -292,6 +324,8 @@
             transform: translateX(-50%);
             font-size: 0.9rem;
             white-space: nowrap;
+            text-align: center;
+            width: 100px;
         }
 
         .bar-value {
@@ -300,6 +334,7 @@
             left: 50%;
             transform: translateX(-50%);
             font-weight: 800;
+            font-size: 1.1rem;
             color: #e74c3c;
         }
 
@@ -321,7 +356,39 @@
             transition: all 0.3s ease;
         }
 
-        .case-image { font-size: 8rem; text-align: center; }
+        .case-study:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 40px rgba(142, 68, 173, 0.4);
+        }
+
+        .case-image {
+            font-size: 8rem;
+            text-align: center;
+        }
+
+        .case-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .case-content .location {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .case-content p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .case-highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
 
         /* Solution Preview */
         .solution-preview {
@@ -330,6 +397,19 @@
             border-radius: 30px;
             margin-top: 50px;
             text-align: center;
+        }
+
+        .solution-preview h2 {
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .solution-preview p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
         .solution-features {
@@ -346,6 +426,16 @@
             backdrop-filter: blur(10px);
         }
 
+        .solution-feature .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .solution-feature h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
         .cta-button {
             display: inline-block;
             padding: 18px 50px;
@@ -360,30 +450,35 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
         /* Footer */
         footer {
             background: #0a0e27;
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px;
             border-top: 1px solid rgba(231, 76, 60, 0.2);
         }
 
-        /* --- RESPONSIVE MOBILE OPTIMIZATION --- */
+        /* --- PERBAIKAN RESPONSIVE (MOBILE OPTIMIZATION) --- */
         @media (max-width: 768px) {
             nav {
                 padding: 15px 20px;
             }
 
             .logo {
-                font-size: 1.1rem;
+                font-size: 1.1rem; /* Biar judul navbar tidak kepotong */
             }
 
             section {
-                padding: 60px 20px; /* Menghilangkan padding berlebih seperti di gambar */
+                padding: 60px 20px; /* Padding kiri-kanan dikurangi agar teks punya ruang (Solusi Utama Gambar Anda) */
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.2rem; /* Mengecilkan ukuran font di mobile */
             }
 
             .hero .subtitle {
@@ -401,7 +496,7 @@
             }
 
             h2 {
-                font-size: 2.1rem;
+                font-size: 2rem;
             }
 
             .section-intro {
@@ -410,11 +505,12 @@
             }
 
             .stat-number {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
 
             .problem-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Memaksa satu kolom di mobile */
+                gap: 20px;
             }
 
             .problem-card {
@@ -423,15 +519,17 @@
 
             .chart-container {
                 padding: 30px 15px;
+                overflow-x: auto; /* Mencegah grafik pecah */
             }
 
             .chart-bars {
                 height: 250px;
+                min-width: 320px;
                 gap: 5px;
             }
 
             .bar {
-                width: 35px;
+                width: 40px;
             }
 
             .bar-label {
@@ -439,9 +537,9 @@
             }
 
             .case-study {
-                grid-template-columns: 1fr;
-                padding: 30px 20px;
+                grid-template-columns: 1fr; /* Memaksa satu kolom */
                 text-align: center;
+                padding: 30px 20px;
             }
 
             .case-image {
@@ -453,8 +551,9 @@
             }
 
             .cta-button {
-                width: 100%;
+                width: 100%; /* Tombol melebar di mobile biar gampang diklik */
                 padding: 15px 20px;
+                font-size: 1.1rem;
             }
         }
 
@@ -486,104 +585,288 @@
             </div>
         </div>
         <div class="scroll-indicator">
-            <p style="margin-bottom: 10px; font-size: 0.9rem;">Scroll untuk data</p>
-            <div style="font-size: 1.5rem;">⬇️</div>
+            <p style="margin-bottom: 10px;">Scroll untuk data lengkap</p>
+            <div style="font-size: 2rem;">⬇️</div>
         </div>
     </section>
 
     <section id="data">
-        <h2>Data & Fakta Cuaca Ekstrem</h2>
+        <h2>Data & Fakta Cuaca Ekstrem di Indonesia</h2>
         <p class="section-intro">
-            Mari kita lihat data nyata tentang dampak cuaca ekstrem di Indonesia.
+            Mari kita lihat data nyata tentang dampak cuaca ekstrem di Indonesia. Angka-angka ini menunjukkan betapa pentingnya kita mencari solusi!
         </p>
 
         <div class="stats-grid fade-in">
             <div class="stat-card">
                 <div class="stat-number">38°C</div>
                 <div class="stat-label">Suhu Maksimal</div>
-                <p>Tercatat di kota besar pada 2024.</p>
+                <p class="stat-description">Suhu tertinggi yang tercatat di kota-kota besar Indonesia seperti Surabaya dan Jakarta pada 2024</p>
             </div>
+
             <div class="stat-card">
                 <div class="stat-number">85%</div>
-                <div class="stat-label">Kelembaban</div>
-                <p>Membuat rumah mudah berjamur.</p>
+                <div class="stat-label">Kelembaban Tinggi</div>
+                <p class="stat-description">Rata-rata kelembaban udara di Indonesia yang membuat rumah mudah berjamur dan rusak</p>
             </div>
+
+            <div class="stat-card">
+                <div class="stat-number">150mm</div>
+                <div class="stat-label">Curah Hujan Ekstrem</div>
+                <p class="stat-description">Curah hujan per jam saat hujan deras yang dapat menyebabkan banjir dan kerusakan properti</p>
+            </div>
+
             <div class="stat-card">
                 <div class="stat-number">3,500+</div>
                 <div class="stat-label">Rumah Rusak</div>
-                <p>Akibat cuaca ekstrem di Jatim 2023.</p>
+                <p class="stat-description">Jumlah rumah yang rusak akibat cuaca ekstrem di Jawa Timur pada tahun 2023</p>
             </div>
         </div>
     </section>
 
     <section id="dampak">
-        <h2>Dampak pada Rumah Kita</h2>
+        <h2>Apa Dampaknya pada Rumah Kita?</h2>
+        <p class="section-intro">
+            Cuaca ekstrem tidak hanya tidak nyaman, tetapi juga merusak dan berbahaya. Ini yang terjadi pada rumah-rumah di Indonesia:
+        </p>
+
         <div class="problem-grid fade-in">
             <div class="problem-card">
                 <div class="problem-icon">🔥</div>
                 <h3>Suhu Ekstrem</h3>
-                <p>Meningkatkan biaya listrik hingga 40% dan risiko heat stroke.</p>
+                <p>Suhu tinggi membuat rumah seperti oven. Dinding dan atap menyerap panas, membuat ruangan tidak nyaman dan meningkatkan biaya listrik untuk AC.</p>
+                <div class="problem-impact">
+                    <strong>Dampak:</strong> Peningkatan biaya listrik hingga 40% dan risiko heat stroke pada penghuni
+                </div>
             </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">💧</div>
+                <h3>Kelembaban Tinggi</h3>
+                <p>Kelembaban tinggi menyebabkan jamur tumbuh di dinding, merusak furnitur, dan menciptakan bau tidak sedap di dalam rumah.</p>
+                <div class="problem-impact">
+                    <strong>Dampak:</strong> Kerusakan struktural rumah dan masalah kesehatan pernapasan
+                </div>
+            </div>
+
             <div class="problem-card">
                 <div class="problem-icon">🌧️</div>
                 <h3>Hujan Ekstrem</h3>
-                <p>Kerugian material rata-rata Rp 5-15 juta per kejadian.</p>
+                <p>Hujan deras tiba-tiba membuat air masuk ke dalam rumah, merusak elektronik, dan menyebabkan kebocoran atap yang sulit diperbaiki.</p>
+                <div class="problem-impact">
+                    <strong>Dampak:</strong> Kerugian material rata-rata Rp 5-15 juta per kejadian
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section id="tren">
-        <h2>Tren Cuaca Meningkat</h2>
-        <div class="chart-container fade-in">
-            <h3 class="chart-title">📊 Hari Cuaca Ekstrem per Tahun</h3>
-            <div class="chart-bars">
-                <div class="bar" style="height: 30%;"><div class="bar-value">45</div><div class="bar-label">2020</div></div>
-                <div class="bar" style="height: 45%;"><div class="bar-value">68</div><div class="bar-label">2021</div></div>
-                <div class="bar" style="height: 60%;"><div class="bar-value">89</div><div class="bar-label">2022</div></div>
-                <div class="bar" style="height: 80%;"><div class="bar-value">112</div><div class="bar-label">2023</div></div>
-                <div class="bar" style="height: 95%;"><div class="bar-value">135</div><div class="bar-label">2024</div></div>
-            </div>
-            <p style="text-align: center; margin-top: 60px;">Peningkatan <strong style="color: #e74c3c;">200%</strong> dalam 5 tahun!</p>
-        </div>
-    </section>
-
-    <section id="kasus">
-        <h2>Kasus Nyata</h2>
-        <div class="case-studies fade-in">
-            <div class="case-study">
-                <div class="case-image">🏘️</div>
-                <div class="case-content">
-                    <h3>Banjir Surabaya</h3>
-                    <p>Februari 2024 - Kerugian total: ~Rp 2,5 Miliar.</p>
+            <div class="problem-card">
+                <div class="problem-icon">💨</div>
+                <h3>Angin Kencang</h3>
+                <p>Angin kencang saat badai dapat merobohkan atap, memecahkan jendela, dan merusak struktur bangunan yang tidak kuat.</p>
+                <div class="problem-impact">
+                    <strong>Dampak:</strong> Risiko cedera dan biaya perbaikan yang sangat tinggi
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="solusi" style="background: #0a0e27;">
-        <div class="solution-preview fade-in">
-            <h2>Solusi INTEL-C 🚀</h2>
-            <p>Menggabungkan Matematika dan Teknologi untuk rumah pintar yang melindungi diri.</p>
-            <div class="solution-features">
-                <div class="solution-feature"><h4>🤖 Sensor Otomatis</h4></div>
-                <div class="solution-feature"><h4>📐 Presisi Matematika</h4></div>
+    <section id="tren">
+        <h2>Tren Cuaca Ekstrem Meningkat</h2>
+        <p class="section-intro">
+            Data BMKG menunjukkan peningkatan signifikan kejadian cuaca ekstrem dalam 5 tahun terakhir
+        </p>
+
+        <div class="chart-container fade-in">
+            <h3 class="chart-title">📊 Jumlah Hari dengan Cuaca Ekstrem per Tahun</h3>
+            <div class="chart-bars">
+                <div class="bar" style="height: 30%;">
+                    <div class="bar-value">45</div>
+                    <div class="bar-label">2020</div>
+                </div>
+                <div class="bar" style="height: 45%;">
+                    <div class="bar-value">68</div>
+                    <div class="bar-label">2021</div>
+                </div>
+                <div class="bar" style="height: 60%;">
+                    <div class="bar-value">89</div>
+                    <div class="bar-label">2022</div>
+                </div>
+                <div class="bar" style="height: 80%;">
+                    <div class="bar-value">112</div>
+                    <div class="bar-label">2023</div>
+                </div>
+                <div class="bar" style="height: 95%;">
+                    <div class="bar-value">135</div>
+                    <div class="bar-label">2024</div>
+                </div>
             </div>
-            <a href="#" class="cta-button">🎯 Ayo Mulai Belajar!</a>
+            <p style="text-align: center; margin-top: 60px; font-size: 1.2rem; opacity: 0.8;">
+                Peningkatan <strong style="color: #e74c3c;">200%</strong> dalam 5 tahun terakhir!
+            </p>
+        </div>
+    </section>
+
+    <section id="kasus">
+        <h2>Kasus Nyata di Indonesia</h2>
+        <p class="section-intro">
+            Ini bukan hanya data statistik. Ini terjadi pada keluarga-keluarga di sekitar kita:
+        </p>
+
+        <div class="case-studies fade-in">
+            <div class="case-study">
+                <div class="case-image">🏘️</div>
+                <div class="case-content">
+                    <h3>Banjir Mendadak di Surabaya</h3>
+                    <p class="location">📍 Surabaya, Jawa Timur - Februari 2024</p>
+                    <p>Hujan ekstrem selama 3 jam menyebabkan banjir setinggi 1 meter di perumahan. Ratusan rumah terendam, peralatan elektronik rusak, dan warga harus mengungsi.</p>
+                    <div class="case-highlight">
+                        💰 Kerugian total: ~Rp 2,5 Miliar | 👨‍👩‍👧‍👦 385 keluarga terdampak
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study">
+                <div class="case-image">🌡️</div>
+                <div class="case-content">
+                    <h3>Gelombang Panas Jakarta</h3>
+                    <p class="location">📍 Jakarta - Oktober 2024</p>
+                    <p>Suhu mencapai 38°C selama seminggu berturut-turut. Konsumsi listrik melonjak 45%, tagihan listrik membengkak, dan banyak kasus dehidrasi dilaporkan.</p>
+                    <div class="case-highlight">
+                        ⚡ Kenaikan tagihan listrik rata-rata: Rp 800.000/bulan
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study">
+                <div class="case-image">💨</div>
+                <div class="case-content">
+                    <h3>Angin Puting Beliung di Malang</h3>
+                    <p class="location">📍 Malang, Jawa Timur - September 2024</p>
+                    <p>Angin kencang dengan kecepatan 80 km/jam menerbangkan atap rumah, pohon tumbang menimpa bangunan, dan jendela pecah berkeping-keping.</p>
+                    <div class="case-highlight">
+                        🏚️ 127 rumah rusak parah | 🚑 23 orang luka-luka
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solusi" style="background: linear-gradient(135deg, #0a0e27, #1a1d3a); margin: 0; max-width: 100%; border-radius: 0;">
+        <div class="solution-preview fade-in">
+            <h2>Saatnya Mencari Solusi! 🚀</h2>
+            <p>
+                Inilah mengapa kita perlu mempelajari INTEL-C. Dengan menggabungkan <strong>Matematika</strong>, <strong>Teknologi</strong>, <strong>Engineering</strong>, dan <strong>Sains</strong>, kita bisa menciptakan rumah pintar yang dapat melindungi diri sendiri dari cuaca ekstrem!
+            </p>
+
+            <div class="solution-features">
+                <div class="solution-feature">
+                    <div class="icon">🤖</div>
+                    <h4>Sensor Otomatis</h4>
+                    <p>Mendeteksi suhu & hujan secara real-time</p>
+                </div>
+
+                <div class="solution-feature">
+                    <div class="icon">📐</div>
+                    <h4>Perhitungan Presisi</h4>
+                    <p>Menggunakan matematika untuk desain optimal</p>
+                </div>
+
+                <div class="solution-feature">
+                    <div class="icon">⚡</div>
+                    <h4>Respons Cepat</h4>
+                    <p>Jendela & kanopi menutup otomatis</p>
+                </div>
+
+                <div class="solution-feature">
+                    <div class="icon">💚</div>
+                    <h4>Ramah Lingkungan</h4>
+                    <p>Solusi berkelanjutan untuk masa depan</p>
+                </div>
+            </div>
+
+            <a href="#" class="cta-button">🎯 Ayo Mulai Belajar INTEL-C!</a>
+
+            <p style="margin-top: 40px; font-size: 1.1rem; font-style: italic;">
+                "Dengan INTEL-C, kamu tidak hanya belajar matematika dan teknologi, tetapi juga menciptakan solusi nyata untuk masalah yang ada di sekitar kita!"
+            </p>
         </div>
     </section>
 
     <footer>
-        <p>Proyek INTEL-C - Universitas Negeri Surabaya - FMIPA</p>
+        <h3 style="margin-bottom: 20px; font-size: 1.5rem;">Siap Membuat Perubahan?</h3>
+        <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 15px;">
+            Proyek INTEL-C - Pembelajaran STEM untuk Masa Depan yang Lebih Baik
+        </p>
+        <p style="opacity: 0.6;">
+            Universitas Negeri Surabaya - FMIPA
+        </p>
     </footer>
 
     <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Number animation on scroll
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value + (element.dataset.suffix || '');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    const number = entry.target.querySelector('.stat-number');
+                    const text = number.textContent;
+                    const matches = text.match(/\d+/);
+                    if (matches) {
+                        const value = parseInt(matches[0]);
+                        number.dataset.suffix = text.replace(/\d+/, '');
+                        number.textContent = '0';
+                        animateValue(number, 0, value, 2000);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card').forEach(el => {
+            statObserver.observe(el);
+        });
     </script>
 </body>
 </html>
